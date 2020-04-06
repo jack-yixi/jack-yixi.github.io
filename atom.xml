@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
-    <title>yixi的github</title>
-    <updated>2020-04-06T09:33:19.570Z</updated>
+    <title>Jack-yixi</title>
+    <updated>2020-04-06T09:36:30.268Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
+    <subtitle>学习分享
+</subtitle>
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, yixi的github</rights>
+    <rights>All rights reserved 2020, Jack-yixi</rights>
     <entry>
         <title type="html"><![CDATA[1342]]></title>
         <id>https://jack-yixi.github.io/post/1342</id>
