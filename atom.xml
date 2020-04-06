@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-04-06T09:45:36.516Z</updated>
+    <updated>2020-04-06T09:47:31.403Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -12,12 +12,12 @@
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
     <entry>
-        <title type="html"><![CDATA[1342]]></title>
+        <title type="html"><![CDATA[第一次写博客]]></title>
         <id>https://jack-yixi.github.io/post/1342</id>
         <link href="https://jack-yixi.github.io/post/1342">
         </link>
         <updated>2020-04-06T07:50:07.000Z</updated>
-        <content type="html"><![CDATA[<p>你好</p>
+        <content type="html"><![CDATA[<p>你好****</p>
 ]]></content>
     </entry>
 </feed>
