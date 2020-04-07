@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-04-06T09:47:31.403Z</updated>
+    <updated>2020-04-07T07:18:43.006Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -12,12 +12,21 @@
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
     <entry>
-        <title type="html"><![CDATA[第一次写博客]]></title>
-        <id>https://jack-yixi.github.io/post/1342</id>
-        <link href="https://jack-yixi.github.io/post/1342">
+        <title type="html"><![CDATA[简单的报名程序(后端)-php]]></title>
+        <id>https://jack-yixi.github.io/post/jian-dan-de-bao-ming-cheng-xu-hou-duan-php</id>
+        <link href="https://jack-yixi.github.io/post/jian-dan-de-bao-ming-cheng-xu-hou-duan-php">
         </link>
-        <updated>2020-04-06T07:50:07.000Z</updated>
-        <content type="html"><![CDATA[<p>你好****</p>
+        <updated>2020-04-07T06:34:15.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-注册">一、注册</h1>
+<h2 id="1链接数据库-设置字符集-选择数据库">1.链接数据库	、设置字符集	、选择数据库</h2>
+<p>​<code>$con=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;); 		header('Content-type:text/html;charset=utf-8'); 		mysqli_query($con,&quot;use study&quot;) ​</code><br>
+注：study是数据库</p>
+<h2 id="2拿到字段-用户-密码">2.拿到字段 用户 密码</h2>
+<pre><code>​```
+$username=$_POST['username'];
+$password=$_POST['password']; 
+​```
+</code></pre>
 ]]></content>
     </entry>
 </feed>

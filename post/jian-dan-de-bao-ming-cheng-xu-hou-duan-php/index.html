@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" >
 
-<title>第一次写博客 | Jack-yixi</title>
+<title>简单的报名程序(后端)-php | Jack-yixi</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
-<link rel="shortcut icon" href="https://jack-yixi.github.io/favicon.ico?v=1586166448226">
+<link rel="shortcut icon" href="https://jack-yixi.github.io/favicon.ico?v=1586243911973">
 <link rel="stylesheet" href="https://jack-yixi.github.io/styles/main.css">
 
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://jack-yixi.github.io">
-        <img src="https://jack-yixi.github.io/images/avatar.png?v=1586166448226" class="site-logo">
+        <img src="https://jack-yixi.github.io/images/avatar.png?v=1586243911973" class="site-logo">
         <h1 class="site-title">Jack-yixi</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -71,11 +71,20 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">第一次写博客</h2>
-            <div class="post-date">2020-04-06</div>
+            <h2 class="post-title">简单的报名程序(后端)-php</h2>
+            <div class="post-date">2020-04-07</div>
             
             <div class="post-content" v-pre>
-              <p>你好****</p>
+              <h1 id="一-注册">一、注册</h1>
+<h2 id="1链接数据库-设置字符集-选择数据库">1.链接数据库	、设置字符集	、选择数据库</h2>
+<p>​<code>$con=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;); 		header('Content-type:text/html;charset=utf-8'); 		mysqli_query($con,&quot;use study&quot;) ​</code><br>
+注：study是数据库</p>
+<h2 id="2拿到字段-用户-密码">2.拿到字段 用户 密码</h2>
+<pre><code>​```
+$username=$_POST['username'];
+$password=$_POST['password']; 
+​```
+</code></pre>
 
             </div>
             
