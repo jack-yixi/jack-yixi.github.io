@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>简单的报名程序(后端)-php——注册篇 | Jack-yixi</title>
+<title>简单的报名程序(后端)-php——登录篇 | Jack-yixi</title>
 <meta name="description" content="学习分享
 ">
 
@@ -70,8 +70,8 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">简单的报名程序(后端)-php——注册篇</h2>
-            <div class="post-date">2020-04-07</div>
+            <h2 class="post-title">简单的报名程序(后端)-php——登录篇</h2>
+            <div class="post-date">2020-04-08</div>
             
             <div class="post-content">
               <h2 id="1链接数据库-设置字符集-选择数据库">1.链接数据库	、设置字符集	、选择数据库</h2>
@@ -80,46 +80,49 @@
 		mysqli_query($con,&quot;use study&quot;);
 </code></pre>
 <p>注:study是数据库。</p>
-<h2 id="2拿到字段-用户-密码">2.拿到字段 用户 密码</h2>
-<pre><code>	$username=$_POST['username'];
-	$password=$_POST['password']; 
-</code></pre>
-<h2 id="3去查询-用户名有没有没占用">3.去查询 用户名有没有没占用</h2>
-<pre><code>	$sql=&quot;select count(*) as total from wlb where username='$username'&quot;;
+<h2 id="2去查询用户名是否存在不存在提示用户名不存在">2.去查询用户名是否存在，不存在提示用户名不存在</h2>
+<pre><code>	$sql=&quot;select password as total from wlb where username='$username'&quot;;
 	$res=mysqli_query($con,$sql);
 	$row=mysqli_fetch_array($res);
-	$count=$row['total'];
+	if(!$row[0]){
+			echo &quot;用户名不存在&quot;;
+			?&gt;
+			&lt;a href=&quot;../login.html&quot;&gt;返回登录&lt;/a&gt;
+			&lt;?php
 </code></pre>
-<p>注：通过查询用户所输入的用户名与数据表wlb中的用户名(username)进行比对，查看是否有记录。</p>
-<h2 id="4根据返回值判断是否成功">4.根据返回值，判断是否成功</h2>
-<pre><code>if($count&gt;0){
-    echo &quot;用户名已经被占用&quot;;
-?&gt;
-    &lt;a href=&quot;../register.html&quot;&gt;返回注册&lt;/a&gt;
-&lt;?php
-    }else{
-    $sql=&quot;insert into wlb(password,username)values('$password','$username')&quot;;
-    $res=mysqli_query($con,$sql);
-    if($res&gt;0){
-        echo &quot;注册成功&quot;;
-?&gt; 
+<p>注：通过<br>
+<code>$sql=&quot;select password as total from wlb where username='$username'&quot;;</code><br>
+查询数据表wlb中是否有与用户输入的相同用户名的密码。</p>
+<h2 id="3存在则继续查询密码是否正确不正确提示密码错误">3.存在则继续查询密码是否正确，不正确提示密码错误</h2>
+<pre><code>	}else if($row[0]!=$_POST['password']){
+    echo &quot;密码输入错误&quot;;
+    ?&gt;
     &lt;a href=&quot;../login.html&quot;&gt;返回登录&lt;/a&gt;
+    &lt;?php
+	}else{
 </code></pre>
-<p>注：如果用户名被占用，这提示被占用，并返回注册界面，如果没有被占用，则以通过。<br>
-<code>$sql=&quot;insertintowlb(password,username)values('$password','$username')&quot;;</code><br>
-向wlb表中添加记录。</p>
-<pre><code>&lt;?php
-    }else{
-        echo &quot;注册失败，后台程序错误&quot;;
-?&gt; 
-    &lt;a href=&quot;../login.html&quot;&gt;返回登录&lt;/a&gt;
-&lt;?php  
+<p>注：通过返回的密码与存在的用户名的密码比对，提示密码是否输入正确</p>
+<h2 id="4密码用户名均正确则跳转登陆页面">4.密码用户名均正确，则跳转登陆页面</h2>
+<pre><code>			echo &quot;登录成功&quot;;
+	?&gt;
+			&lt;a href=&quot;../succes.html&quot;&gt;确定&lt;/a&gt;
+	&lt;?php
+	}
+	?&gt;
 </code></pre>
-<p>注：如果返回值并非大于零，则为后台程序出现错误，返回注册失败，后台程序错误。<br>
-注：html代码不能写在php代码里面。</p>
+<p>注：同样html代码不能写在php里面</p>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://jack-yixi.github.io/post/jian-dan-de-bao-ming-cheng-xu-hou-duan-php">
+                  <h3 class="post-title">
+                    简单的报名程序(后端)-php——注册篇
+                  </h3>
+                </a>
+              </div>
             
 
             
