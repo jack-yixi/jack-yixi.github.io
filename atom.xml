@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-04-08T06:22:31.536Z</updated>
+    <updated>2020-04-16T13:00:17.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -11,6 +11,49 @@
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
+    <entry>
+        <title type="html"><![CDATA[简单的前后端交互——php（jQuery-Ajax）]]></title>
+        <id>https://jack-yixi.github.io/post/jian-dan-de-qian-hou-duan-jiao-hu-phpjquery-ajax</id>
+        <link href="https://jack-yixi.github.io/post/jian-dan-de-qian-hou-duan-jiao-hu-phpjquery-ajax">
+        </link>
+        <updated>2020-04-16T11:51:24.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1ajax给后端提供数据">1.Ajax给后端提供数据</h2>
+<p>代码：</p>
+<pre><code>&lt;div&gt;&lt;button id=&quot;aaa&quot;&gt;测试&lt;/button&gt;&lt;/div&gt;
+&lt;script&gt;
+$(document).ready(function(){
+			    $(&quot;#aaa&quot;).click(function(){
+
+				$.post(&quot;./api/captcha.php&quot;, 
+					{
+						name:&quot;菜鸟教程&quot;,
+						url:&quot;https://www.www.tdyixi.cn&quot;
+					},
+				function(data,status){
+				alert(&quot;数据: \n&quot; + data + &quot;\n状态: &quot; + status);
+						});
+                    });
+                });
+&lt;/script&gt;
+</code></pre>
+<p>注：1.通过<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;#&#039; at position 3: (&quot;#̲aaa&quot;).click(fun…'>(&quot;#aaa&quot;).click(function()给按钮添加事件。
+	   	2.使用</span>.post() 方法通过 HTTP POST 请求向服务器提交数据。<br>
+3.function(data,status)为回调函数。<br>
+4.切记不要忘了引用jQuery文件。</p>
+<h2 id="2后端接受到数据">2.后端接受到数据</h2>
+<p>代码：</p>
+<pre><code>&lt;?php
+$name=$_POST['name'];
+$url=$_POST['url'];
+print_r(&quot;我接收到了&quot;.$name);
+print_r(https://jack-yixi.github.io/post-images/1587041578759.png)
+echo &quot;succes&quot;;
+?&gt;
+</code></pre>
+<p>注：通过print_r打印出所获取的内容，最终并返回success。</p>
+<h2 id="3结果">3.结果</h2>
+<img width="300px" src="C:\Users\Lenovo\Desktop\_(RFZJLC)XJBP9D$~XDEI~C.png" />]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MySQL笔记]]></title>
         <id>https://jack-yixi.github.io/post/mysql-bi-ji</id>
