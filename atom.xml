@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-04-16T13:17:19.940Z</updated>
+    <updated>2020-06-25T09:22:53.761Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -11,6 +11,48 @@
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
+    <entry>
+        <title type="html"><![CDATA[PHP入门之全局变量无法在函数中访问]]></title>
+        <id>https://jack-yixi.github.io/post/php-ru-men-zhi-quan-ju-bian-liang-wu-fa-zai-han-shu-zhong-fang-wen</id>
+        <link href="https://jack-yixi.github.io/post/php-ru-men-zhi-quan-ju-bian-liang-wu-fa-zai-han-shu-zhong-fang-wen">
+        </link>
+        <updated>2020-06-25T09:13:30.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="运行代码">运行代码</h2>
+<pre><code class="language-&lt;?php">$a=10;
+function add($c,$b){
+    $a++;
+    return $c+$b;
+}
+$d=add(3,5);
+echo $d;
+echo '&lt;br /&gt;';
+echo $a;
+?&gt;
+</code></pre>
+<h2 id="运行报错">运行报错</h2>
+<pre><code>Notice: Undefined variable: a in    D:\phpStudy\PHPTutorial\WWW\global.php on line 5
+echo $a值为10
+</code></pre>
+<h2 id="修改">修改</h2>
+<p>加入以下语句，在函数体声明外部全局变量</p>
+<pre><code>global $a;
+</code></pre>
+<h2 id="完整代码">完整代码</h2>
+<pre><code>&lt;?php
+$a=10;
+function add($c,$b){
+    global $a;
+    $a++;
+    return $c+$b;
+}
+$d=add(3,5);
+echo $d;
+echo '&lt;br /&gt;';
+echo $a;
+?&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[简单的前后端交互——php（jQuery-Ajax）]]></title>
         <id>https://jack-yixi.github.io/post/jian-dan-de-qian-hou-duan-jiao-hu-phpjquery-ajax</id>
