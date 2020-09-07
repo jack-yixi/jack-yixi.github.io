@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-06-28T07:35:55.714Z</updated>
+    <updated>2020-09-07T02:28:27.833Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -11,6 +11,25 @@
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
+    <entry>
+        <title type="html"><![CDATA[JAVA学习--类型转换]]></title>
+        <id>https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan</id>
+        <link href="https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan">
+        </link>
+        <updated>2020-09-07T02:09:26.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="类型转换">类型转换</h2>
+<p>低&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;高<br>
+byte-&gt;short-&gt;char-&gt;int-&gt;long-&gt;float-&gt;double</p>
+<p>1.自动类型转换：由低到高转换</p>
+<pre><code>	byte num = 24;
+	int num2 = num;
+</code></pre>
+<p>2.强制类型转换：由高到低转换</p>
+<pre><code>	int num = 23;
+	byte num2 = (byte)num;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PHP入门小项目——验证码]]></title>
         <id>https://jack-yixi.github.io/post/php-ru-men-xiao-xiang-mu-yan-zheng-ma</id>
