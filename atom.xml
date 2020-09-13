@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-09-07T02:28:27.833Z</updated>
+    <updated>2020-09-13T07:53:10.587Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -11,6 +11,109 @@
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
+    <entry>
+        <title type="html"><![CDATA[JAVA学习--private访问]]></title>
+        <id>https://jack-yixi.github.io/post/java-xue-xi-private-fang-wen</id>
+        <link href="https://jack-yixi.github.io/post/java-xue-xi-private-fang-wen">
+        </link>
+        <updated>2020-09-13T07:36:53.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="完整代码">完整代码</h2>
+<pre><code>package com.yixi.oop.Demo03;
+
+public class Demo02 {
+    private String name;
+    private int id;
+
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public int getId(){
+        return this.id;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+}
+</code></pre>
+<pre><code>package com.yixi.oop.Demo03;
+
+public class Demo01 {
+    public static void main(String[] args) {
+        Demo02  d2 = new Demo02();
+        d2.setName(&quot;张三&quot;);
+        System.out.println(&quot;名字：&quot;+d2.getName());
+        d2.setId(23);
+        System.out.println(&quot;学号：&quot;+d2.getId());
+    }
+}
+</code></pre>
+<h2 id="结果">结果</h2>
+<p><img src="https://jack-yixi.github.io/post-images/1599982796376.png" alt=""></p>
+<p>当变量前加上private关键字，主方法无法直接访问，只能通过调用方法的方式间接赋值和访问。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JAVA学习--构造器]]></title>
+        <id>https://jack-yixi.github.io/post/java-xue-xi-gou-zao-qi</id>
+        <link href="https://jack-yixi.github.io/post/java-xue-xi-gou-zao-qi">
+        </link>
+        <updated>2020-09-13T02:45:40.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="构造器的代码">构造器的代码</h3>
+<pre><code>package com.yixi.oop.Demo02;
+
+public class Person {
+    String name;
+    int age;
+
+    public Person(){
+    //无参构造，也称构造方法/函数
+    }
+    //有参构造
+		
+    //单参构造
+    public Person(String name) {
+        this.name = name;
+    }
+    //多参构造
+    public Person(String name,int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+</code></pre>
+<pre><code>package com.yixi.oop.Demo02;
+
+public class Demo03 {
+    public static void main(String[] args) {
+        //无参实例化
+        Person Person = new Person();
+        System.out.println(Person.name);
+				
+        //单参实例化
+        Person ren = new Person(&quot;李四&quot;);
+        System.out.println(ren.name);
+				
+        //多参实例化
+        Person daren = new Person(&quot;王五&quot;,20);
+        System.out.println(daren.name);
+        System.out.println(daren.age);
+    }
+}
+</code></pre>
+<h3 id="结果">结果</h3>
+<p><img src="https://jack-yixi.github.io/post-images/1599966004140.png" alt=""></p>
+<h3 id="构造器的使用以及目的">构造器的使用以及目的</h3>
+<p>目的：<br>
+1.使用new方法实质是默认在调用构造器<br>
+2.为了初始化对象<br>
+使用：<br>
+1.无参构造会自动生成<br>
+2.单参/多参需要手动写</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JAVA学习--类型转换]]></title>
         <id>https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan</id>

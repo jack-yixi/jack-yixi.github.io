@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JAVA学习--类型转换 | Jack-yixi</title>
+<title>JAVA学习--构造器 | Jack-yixi</title>
 <meta name="description" content="学习分享
 ">
 
@@ -76,33 +76,73 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JAVA学习--类型转换</h2>
-            <div class="post-date">2020-09-07</div>
+            <h2 class="post-title">JAVA学习--构造器</h2>
+            <div class="post-date">2020-09-13</div>
             
               <div class="feature-container" style="background-image: url('https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1599455484304&amp;di=c3db16a6eba9172bf16fb8942893ec57&amp;imgtype=0&amp;src=http%3A%2F%2Ffile.elecfans.com%2Fweb1%2FM00%2F4F%2F06%2FpIYBAFrQBMCAB_fsAAAsUH60r4M557.jpg')">
               </div>
             
             <div class="post-content">
-              <h2 id="类型转换">类型转换</h2>
-<p>低&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;高<br>
-byte-&gt;short-&gt;char-&gt;int-&gt;long-&gt;float-&gt;double</p>
-<p>1.自动类型转换：由低到高转换</p>
-<pre><code>	byte num = 24;
-	int num2 = num;
+              <h3 id="构造器的代码">构造器的代码</h3>
+<pre><code>package com.yixi.oop.Demo02;
+
+public class Person {
+    String name;
+    int age;
+
+    public Person(){
+    //无参构造，也称构造方法/函数
+    }
+    //有参构造
+		
+    //单参构造
+    public Person(String name) {
+        this.name = name;
+    }
+    //多参构造
+    public Person(String name,int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
 </code></pre>
-<p>2.强制类型转换：由高到低转换</p>
-<pre><code>	int num = 23;
-	byte num2 = (byte)num;
+<pre><code>package com.yixi.oop.Demo02;
+
+public class Demo03 {
+    public static void main(String[] args) {
+        //无参实例化
+        Person Person = new Person();
+        System.out.println(Person.name);
+				
+        //单参实例化
+        Person ren = new Person(&quot;李四&quot;);
+        System.out.println(ren.name);
+				
+        //多参实例化
+        Person daren = new Person(&quot;王五&quot;,20);
+        System.out.println(daren.name);
+        System.out.println(daren.age);
+    }
+}
 </code></pre>
+<h3 id="结果">结果</h3>
+<p><img src="https://jack-yixi.github.io/post-images/1599966004140.png" alt=""></p>
+<h3 id="构造器的使用以及目的">构造器的使用以及目的</h3>
+<p>目的：<br>
+1.使用new方法实质是默认在调用构造器<br>
+2.为了初始化对象<br>
+使用：<br>
+1.无参构造会自动生成<br>
+2.单参/多参需要手动写</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://jack-yixi.github.io/post/php-ru-men-xiao-xiang-mu-yan-zheng-ma">
+                <a href="https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan">
                   <h3 class="post-title">
-                    PHP入门小项目——验证码
+                    JAVA学习--类型转换
                   </h3>
                 </a>
               </div>
