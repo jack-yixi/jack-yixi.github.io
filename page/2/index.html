@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>PHP入门之全局变量无法在函数中访问 | Jack-yixi</title>
+<title>Jack-yixi</title>
 <meta name="description" content="学习分享
 ">
 
@@ -14,12 +14,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jack-yixi.github.io/styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -75,72 +69,34 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">PHP入门之全局变量无法在函数中访问</h2>
-            <div class="post-date">2020-06-25</div>
-            
-              <div class="feature-container" style="background-image: url('https://jack-yixi.github.io/post-images/php-ru-men-zhi-quan-ju-bian-liang-wu-fa-zai-han-shu-zhong-fang-wen.jpg')">
-              </div>
-            
-            <div class="post-content">
-              <h2 id="运行代码">运行代码</h2>
-<pre><code>&lt;?php
-$a=10;
-function add($c,$b){
-    $a++;
-    return $c+$b;
-}
-$d=add(3,5);
-echo $d;
-echo '&lt;br /&gt;';
-echo $a;
-?&gt;
-</code></pre>
-<h2 id="运行报错">运行报错</h2>
-<pre><code>Notice: Undefined variable: a in    D:\phpStudy\PHPTutorial\WWW\global.php on line 5
-echo $a值为10
-</code></pre>
-<h2 id="修改">修改</h2>
-<p>加入以下语句，在函数体声明外部全局变量</p>
-<pre><code>global $a;
-</code></pre>
-<h2 id="完整代码">完整代码</h2>
-<pre><code>&lt;?php
-$a=10;
-function add($c,$b){
-    global $a;
-    $a++;
-    return $c+$b;
-}
-$d=add(3,5);
-echo $d;
-echo '&lt;br /&gt;';
-echo $a;
-?&gt;
-</code></pre>
-
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://jack-yixi.github.io/post/jian-dan-de-qian-hou-duan-jiao-hu-phpjquery-ajax">
-                  <h3 class="post-title">
-                    简单的前后端交互——php（jQuery-Ajax）
-                  </h3>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://jack-yixi.github.io/post/jian-dan-de-bao-ming-cheng-xu-hou-duan-php">
+                  <h2 class="post-title">简单的报名程序(后端)-php——注册篇</h2>
                 </a>
+                <div class="post-date">
+                  2020-04-07
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
               </div>
-            
-
-            
               
-                <div id="gitalk-container" data-aos="fade-in"></div>
+                <a class="right" href="https://jack-yixi.github.io/post/jian-dan-de-bao-ming-cheng-xu-hou-duan-php">
+                  <div class="feature-container" style="background-image: url('https://jack-yixi.github.io/post-images/jian-dan-de-bao-ming-cheng-xu-hou-duan-php.jpg')">
+                  </div>
+                </a>
               
+            </article>
+          
 
-              
-            
-
-          </div>
+          <div class="pagination-container">
+  
+    <a href="https://jack-yixi.github.io/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+</div>
 
         </div>
       </div>
@@ -162,29 +118,6 @@ var app = new Vue({
 })
 
 </script>
-
-
-
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-
-      var gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: '',
-        owner: '',
-        admin: [''],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
-
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
 
 
 
