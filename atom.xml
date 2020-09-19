@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-09-13T07:53:10.587Z</updated>
+    <updated>2020-09-19T06:15:24.810Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -11,6 +11,58 @@
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
+    <entry>
+        <title type="html"><![CDATA[JAVA学习--成员内部类]]></title>
+        <id>https://jack-yixi.github.io/post/java-xue-xi-cheng-yuan-nei-bu-lei</id>
+        <link href="https://jack-yixi.github.io/post/java-xue-xi-cheng-yuan-nei-bu-lei">
+        </link>
+        <updated>2020-09-19T06:10:21.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="完整源代码">完整源代码</h2>
+<pre><code>package com.yixi.userClass.chengyuan;
+//外部类
+public class outer {
+    //实例变量
+    private String name = &quot;张三&quot;;
+    private int age = 20;
+
+    //内部类
+    class Inner{
+        //成员内部类不能定义静态成员,但可以包含静态常量
+        //内部类变量
+        private String name = &quot;李四&quot;;
+        private String address = &quot;北京&quot;;
+        private  int phone = 110;
+        //内部类方法
+        public void show(){
+            //打印外部类变量
+            //当外部类和内部类存在重名属性时，会优先访问内部类
+            System.out.println(name);
+            //同名情况下访问外部类
+            System.out.println(outer.this.name);
+            System.out.println(age);
+            //打印内部类变量
+            System.out.println(address);
+            System.out.println(phone);
+        }
+    }
+}
+</code></pre>
+<pre><code>package com.yixi.userClass.chengyuan;
+
+import com.yixi.userClass.chengyuan.outer;
+
+public class test {
+    public static void main(String[] args) {
+        outer.Inner inner = new outer().new Inner();
+        inner.show();
+
+    }
+}
+</code></pre>
+<h2 id="结果">结果</h2>
+<p><img src="https://jack-yixi.github.io/post-images/1600496001095.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JAVA学习--private访问]]></title>
         <id>https://jack-yixi.github.io/post/java-xue-xi-private-fang-wen</id>
