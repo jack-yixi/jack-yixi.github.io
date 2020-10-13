@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JAVA学习--静态内部类 | Jack-yixi</title>
+<title>JAVA学习--常用方法 | Jack-yixi</title>
 <meta name="description" content="学习分享
 ">
 
@@ -76,62 +76,123 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JAVA学习--静态内部类</h2>
-            <div class="post-date">2020-09-19</div>
+            <h2 class="post-title">JAVA学习--常用方法</h2>
+            <div class="post-date">2020-10-13</div>
             
               <div class="feature-container" style="background-image: url('https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1599455484304&amp;di=c3db16a6eba9172bf16fb8942893ec57&amp;imgtype=0&amp;src=http%3A%2F%2Ffile.elecfans.com%2Fweb1%2FM00%2F4F%2F06%2FpIYBAFrQBMCAB_fsAAAsUH60r4M557.jpg')">
               </div>
             
             <div class="post-content">
-              <h2 id="完整源代码">完整源代码</h2>
-<pre><code>package com.yixi.userClass.Static;
-//外部类
-public class Outer {
-    //实例变量
-    private String name = &quot;张三&quot;;
-    private int age = 10;
-    //静态内部类,级别的Outer一样
-    static class Inner{
-        //内部类变量
-        private String address = &quot;上海&quot;;
-        private int phone = 110;
-        //可以定义静态变量
-        private static String name2 = &quot;哈哈&quot;;
-        public void show (){
-            //访问外部内变量
-            Outer outer = new Outer();
-            System.out.println(outer.name);
-            System.out.println(outer.age);
-            //访问内部类变量
-            System.out.println(address);
-            System.out.println(phone);
-            //静态成员通过类访问
-            System.out.println(Inner.name2);
-        }
-    }
-}
-</code></pre>
-<pre><code>package com.yixi.userClass.Static;
+              <h2 id="类">类</h2>
+<pre><code>package com.yixi.userClass.getClass;
 
-public class Test {
-    //静态内部类可以直接new其对象
-    public static void main(String[] args) {
-        Outer.Inner inner = new Outer.Inner();
-        inner.show();
+import java.util.Objects;
+
+public class Student {
+    private String name ;
+    private int age ;
+
+    public Student() {
+    }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Student{&quot; +
+                &quot;name='&quot; + name + '\'' +
+                &quot;, age=&quot; + age +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        //如果当前对象的是o的应用对象，则返回true
+        if (this == o) return true;
+        //如果对象为空或者当前对象的类型与传过来的对象的类型不同，表示非相同对象，返回false
+        if (o == null || getClass() != o.getClass()) return false;
+        //强制类型转化，转为student类型的student
+        Student student = (Student) o;
+        //判断两个对象的成员变量是否相同，相同返回true，否则返回false
+        return age == student.age &amp;&amp;
+                Objects.equals(name, student.name);
     }
 }
+
 </code></pre>
-<h2 id="运行结果">运行结果</h2>
-<p><img src="https://jack-yixi.github.io/post-images/1600498077545.png" alt=""></p>
+<h3 id="1getclass方法获取返回对象的类型">1.getClass()方法，获取返回对象的类型</h3>
+<pre><code>         Student s1 = new Student(&quot;aaa&quot;,22);
+         Student s2 = new Student(&quot;bbb&quot;,32);
+         Class c1 = s1.getClass();
+         Class c2 = s2.getClass();
+         if (c1==c2){
+             System.out.println(&quot;s1和s2是同一类型&quot;);
+         }else{
+             System.out.println(&quot;s1和s2不是同一类型&quot;);
+         }
+</code></pre>
+<p>结果</p>
+<pre><code>s1和s2是同一类型
+</code></pre>
+<h3 id="2hashcode方法返回当前对象的哈希值相同对象的哈希值一样">2.hashCode()方法，返回当前对象的哈希值,相同对象的哈希值一样</h3>
+<pre><code> Student s3 = s1;
+        System.out.println(s1.hashCode());
+        System.out.println(s2.hashCode());
+        System.out.println(s3.hashCode());
+</code></pre>
+<p>结果</p>
+<pre><code>189568618
+793589513
+189568618
+</code></pre>
+<h3 id="3tostring方法-返回当前对象的字符串表示可重构">3.toString()方法 返回当前对象的字符串表示,可重构</h3>
+<pre><code>System.out.println(s1.toString());
+        System.out.println(s2.toString());
+</code></pre>
+<p>结果</p>
+<pre><code>Student{name='aaa', age=22}
+Student{name='bbb', age=32}
+</code></pre>
+<h3 id="4equals方法判断两个对象是否相等">4.equals()方法，判断两个对象是否相等</h3>
+<pre><code> Student s4 = new Student(&quot;小明&quot;, 17);
+        Student s5 = new Student(&quot;小明&quot;, 17);
+        System.out.println(s4.equals(s5));
+        //重写前返回false.因为s4和s5是两个不同的对象
+        //想要用equals判断两个对象&quot;内容&quot;是否一样，需要对equals进行重写
+</code></pre>
+<p>结果</p>
+<pre><code>true
+</code></pre>
+<h3 id="5finalize方法">5.finalize()方法</h3>
+<p>一般有系统自己调用，自动回收判断为垃圾的变量，节省空间</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://jack-yixi.github.io/post/java-xue-xi-cheng-yuan-nei-bu-lei">
+                <a href="https://jack-yixi.github.io/post/java-xue-xi-jing-tai-nei-bu-lei">
                   <h3 class="post-title">
-                    JAVA学习--成员内部类
+                    JAVA学习--静态内部类
                   </h3>
                 </a>
               </div>
