@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-10-13T10:51:25.880Z</updated>
+    <updated>2020-10-14T08:27:56.863Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -11,6 +11,42 @@
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
+    <entry>
+        <title type="html"><![CDATA[JAVA学习--类型转换和字符串转换]]></title>
+        <id>https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan-he-zi-fu-chuan-zhuan-huan</id>
+        <link href="https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan-he-zi-fu-chuan-zhuan-huan">
+        </link>
+        <updated>2020-10-14T08:05:57.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1基本类型转字符串">1.基本类型转字符串</h2>
+<pre><code>				//1.1加&quot;&quot;
+				int a = 20;
+        String str1 = a + &quot;&quot;;
+        System.out.println(str1);
+				
+        //1.2Integer.toString()转换
+        String str2 = Integer.toString(a);
+        System.out.println(str2);
+</code></pre>
+<h2 id="2字符串转基本类型">2.字符串转基本类型</h2>
+<pre><code>				//2.字符串转基本类型
+        //使用Integer.parseXXX()转换
+        String str3 = &quot;2342&quot;;
+        int a1 = Integer.parseInt(str3);
+        System.out.println(a1);
+</code></pre>
+<h2 id="3boolean形式的字符串转换">3.boolean形式的字符串转换</h2>
+<pre><code>				//boolean形式的字符串转换，&quot;true&quot;----&gt;ture,非&quot;true&quot;-----&gt;false
+        String str4 = &quot;true&quot;;
+        String str5 = &quot;treu&quot;;
+        boolean b1 = Boolean.parseBoolean(str4);
+        boolean b2 = Boolean.parseBoolean(str5);
+        System.out.println(b1);
+        System.out.println(b2);
+</code></pre>
+<h2 id="4结果">4结果</h2>
+<p><img src="https://jack-yixi.github.io/post-images/1602663050925.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JAVA学习--常用方法]]></title>
         <id>https://jack-yixi.github.io/post/java-xue-xi-chang-yong-fang-fa</id>
@@ -461,336 +497,5 @@ echo &quot;succes&quot;;
 <p>注：通过print_r打印出所获取的内容，最终并返回success。</p>
 <h2 id="3结果">3.结果</h2>
 <img width="300px" src="C:\Users\Lenovo\Desktop\_(RFZJLC)XJBP9D$~XDEI~C.png" />]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MySQL笔记]]></title>
-        <id>https://jack-yixi.github.io/post/mysql-bi-ji</id>
-        <link href="https://jack-yixi.github.io/post/mysql-bi-ji">
-        </link>
-        <updated>2020-04-08T06:05:11.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一如何使用终端操作数据库">一，如何使用终端操作数据库？</h1>
-<h2 id="增删改查">增删改查</h2>
-<h3 id="1如何查询数据库服务器中的所有数据库">1，如何查询数据库服务器中的所有数据库？</h3>
-<pre><code>	mysql&gt; show databases;
-	+--------------------+
-	| Database        		   |
-	+--------------------+
-	| information_schema 	|
-	| mysql             		       |
-	| performance_schema |
-	| test              			       |
-	| zt                			        |
-	+-----------------------+
-	5 rows in set (0.00 sec)
-</code></pre>
-<h3 id="2如何选中某一个数据库进行操作">2，如何选中某一个数据库进行操作？</h3>
-<pre><code>mysql&gt; use test（数据库名字）
-Database changed
-查询：mysql&gt; select * from admin;
-</code></pre>
-<h3 id="3如何退出数据库服务器">3，如何退出数据库服务器？</h3>
-<pre><code>mysql&gt;exit;
-Bye
-</code></pre>
-<h3 id="4如何在数据库服务器中创建数据库">4,如何在数据库服务器中创建数据库？</h3>
-<pre><code>mysql&gt; create database text;
-Query OK, 1 row affected (0.00 sec)
-</code></pre>
-<h3 id="5如何查看某个数据库中的数据表">5，如何查看某个数据库中的数据表？</h3>
-<pre><code>mysql&gt;show tables;
-ERROR 1046 (3D000): No database selected（一个数据表都没有）
-</code></pre>
-<h3 id="6如何创建一个数据表">6，如何创建一个数据表？</h3>
-<pre><code>		mysql&gt; CREATE TABLE pet (
-    -&gt; name VARCHAR(20),
-    -&gt; owner VARCHAR(20),
-    -&gt; species VARCHAR(20),
-    -&gt; sex CHAR(1),
-    -&gt; birth DATE,
-    -&gt; death DATE);
-</code></pre>
-<h3 id="7查看是否创建成功">7，查看是否创建成功：</h3>
-<pre><code>mysql&gt;show tables;
-+--------------+
-| Tables_in_zt |
-+--------------+
-| pet                |
-+--------------+
-1 row in set (0.00 sec)
-</code></pre>
-<h3 id="8查看创建好的数据表的结构">8，查看创建好的数据表的结构：</h3>
-<pre><code>mysql&gt;describe pet；
-+---------+------------------+------+-------+----------+-------+
-| Field     | Type             | Null | Key  | Default | Extra |
-+---------+------------------+------+-----+---------+-------+
-| name    | varchar(20) | YES  |        | NULL    |          |
-| owner   | varchar(20) | YES  |        | NULL    |          |
-| species | varchar(20) | YES  |        | NULL    |          |
-| sex        | char(1)        | YES  |        | NULL    |          |
-| birth       | date            | YES  |        | NULL    |          |
-| death     | date            | YES  |        | NULL    |          |
-+---------+------------------+-------+-------+----------+-------+
-6 rows in set (0.08 sec)
-</code></pre>
-<h3 id="9如何删除一张数据表">9，如何删除一张数据表：</h3>
-<pre><code>mysql&gt; drop table wlb;
-Query OK, 0 rows affected (0.00 sec)
-</code></pre>
-<h3 id="10如何查看数据表中的记录">10，如何查看数据表中的记录？</h3>
-<pre><code>mysql&gt; select * from pet;
-Empty set (0.01 sec)
-</code></pre>
-<h3 id="11如何往数据库中插入数据记录">11,如何往数据库中插入数据记录？</h3>
-<pre><code>（1）mysql&gt; insert into pet
-   	 -&gt; values ('puffball','diane','hamster','f','1999-03-30',null);
-Query OK, 1 row affected (0.12 sec)
-（2）mysql&gt; insert into pet
-   -&gt;（name）values(&quot;110&quot;);
-*/name为已有的/*
-+----------+-------+---------+------+------------+------------+
-| name     | owner | species | sex  | birth      | death      |
-+----------+-------+---------+------+------------+------------+
-| puffball | diane | hamster | f    | 1999-03-30 | NULL       |
-|          |       |         |      | 1900-02-23 | 0000-00-00    |
-|          |       |         |      | 0000-00-00 | NULL          |
-| 110      | NULL  | NULL    | NULL | NULL       | NULL       |
-+----------+-------+---------+------+------------+------------+
-</code></pre>
-<h3 id="12再一次查询">12，再一次查询？</h3>
-<pre><code>mysql&gt; select * from pet;
-+----------+----------+------------+------+-----------------+-------+
-| name     | owner | species  | sex  |        birth       | death |
-+----------+----------+------------+------+-----------------+-------+
-| puffball | diane    | hamster |    f    | 1999-03-30 | NULL |
-+----------+----------+------------+------+------------------+-------+
-1 row in set (0.00 sec)
-</code></pre>
-<h3 id="单一查询">单一查询：</h3>
-<pre><code>mysql&gt; select * from pet where name=110；
-+------+-------+---------+------+-------+-------+
-| name | owner | species | sex  | birth | death |
-+------+-------+---------+------+-------+-------+
-| 110  | NULL  | NULL    | NULL | NULL  | NULL  |
-+------+-------+---------+------+-------+-------+
-1 row in set, 1 warning (0.00 sec)
-</code></pre>
-<h3 id="13如何删除数据记录">13，如何删除数据记录：</h3>
-<pre><code>mysql&gt; delete from pet where death=0000-00-00;
-Query OK, 1 row affected (0.00 sec)
-
-mysql&gt; select * from pet;
-+----------+-------+---------+------+------------+-------+
-| name     | owner | species | sex  | birth      | death |
-+----------+-------+---------+------+------------+-------+
-| puffball | diane | hamster | f    | 1999-03-30 | NULL  |
-+----------+-------+---------+------+------------+-------+
-1 row in set (0.00 sec)
-</code></pre>
-<h3 id="14如何更改数据记录">14，如何更改数据记录：</h3>
-<pre><code>update pet name=ok where name=puffball; 
-*/把puffball改为ok/*、
-</code></pre>
-<h3 id="15mysql常用数据类型">15，MySQL常用数据类型：</h3>
-<h4 id="菜鸟教程查询">菜鸟教程查询</h4>
-<h3 id="16主键约束">16.主键约束</h3>
-<pre><code>mysql&gt;  create table ren(
-id int primary key,
-name varchar(20)
-);
-Query OK, 0 rows affected (0.14 sec)
-mysql&gt; select * from ren;
-+----+------+
-| id | name |
-+----+------+
-|  1 | ???? |
-+----+------+
-1 row in set (0.00 sec)
-
-
-mysql&gt; insert into ren values(1,'张三');
-ERROR 1062 (23000): Duplicate entry '1' for key 'PRIMARY'
-mysql&gt; insert into ren values(2,'张三');
-Query OK, 1 row affected, 2 warnings (0.00 sec)
-
-mysql&gt; select * from ren;
-+----+------+
-| id | name |
-+----+------+
-|  1 | ???? |
-|  2 | ???? |
-+----+------+
-2 rows in set (0.00 sec)
-</code></pre>
-<h3 id="联合主键">联合主键</h3>
-<pre><code>mysql&gt;  create table ren2(
-    -&gt; id int ,
-    -&gt; name varchar(20),
-    -&gt; primary key(id,name)
-    -&gt; );
-Query OK, 0 rows affected (0.06 sec)
-
-mysql&gt; insert into ren2 values(1,'张三');
-Query OK, 1 row affected, 2 warnings (0.00 sec)
-
-mysql&gt; insert into ren2 values(null,'张三');
-ERROR 1048 (23000): Column 'id' cannot be null
-mysql&gt; insert into ren2 values(1,'张三');
-ERROR 1062 (23000): Duplicate entry '1-????' for key 'PRIMARY'
-mysql&gt; select * from ren2;
-+----+------+
-| id | name |
-+----+------+
-|  1 | ???? |
-+----+------+
-1 row in set (0.00 sec)
-</code></pre>
-<h4 id="只要id和那么加起来不相同就可以添加数据">只要id和那么加起来不相同就可以添加数据</h4>
-<h3 id="自增主键">自增主键</h3>
-<pre><code>create table ren3(id int primary key auto_increment,name varchar(20));
-Query OK, 0 rows affected (0.24 sec)
-
-mysql&gt; insert into ren3 (name) values('zhangsan');
-Query OK, 1 row affected (0.00 sec)
-mysql&gt; select * from ren3;
-+----+----------+
-| id | name     |
-+----+----------+
-|  1 | zhangsan |
-+----+----------+
-1 row in set (0.00 sec)
-</code></pre>
-<h4 id="会自动给id排列">会自动给id排列</h4>
-<h3 id="17唯一约束">17.唯一约束</h3>
-<h4 id="约束修饰的字段不可重复">约束修饰的字段不可重复</h4>
-<pre><code>1.mysql&gt;create table ren5(
-id int,
-name varchar(20)
-);
-mysql&gt; create table ren5(
-    -&gt; id int,
-    -&gt; name varchar(20)
-    -&gt; );
-Query OK, 0 rows affected (0.29 sec)
-mysql&gt; alter table ren5 add unique(name);
-Query OK, 0 rows affected (0.09 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
-
-2.mysql&gt; create table ren6(
-    -&gt; id int,
-    -&gt; name varchar(20),
-    -&gt; unique (name)
-    -&gt; );
-Query OK, 0 rows affected (0.09 sec)
-</code></pre>
-<h3 id="如何删除unique">如何删除unique</h3>
-<pre><code>mysql&gt; alter table ren5 drop name;
-Query OK, 0 rows affected (0.12 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
-mysql&gt; desc ren5;
-+-------+---------+------+-----+---------+-------+
-| Field | Type    | Null | Key | Default | Extra |
-+-------+---------+------+-----+---------+-------+
-| id    | int(11) | YES  |     | NULL    |       |
-+-------+---------+------+-----+---------+-------+
-1 row in set (0.01 sec)
-</code></pre>
-<h4 id="modify添加unique">modify添加unique？</h4>
-<pre><code> mysql&gt; alter table ren7 modify name varchar (20) unique;
-Query OK, 0 rows affected (0.11 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
-mysql&gt; desc ren7;
-+-------+-------------+------+-----+---------+-------+
-| Field | Type        | Null | Key | Default | Extra |
-+-------+-------------+------+-----+---------+-------+
-| id    | int(11)     | YES  |     | NULL    |       |
-| name  | varchar(20) | YES  | UNI | NULL    |       |
-+-------+-------------+------+-----+---------+-------+
-2 rows in set (0.06 sec)
-</code></pre>
-<h3 id="18非空约束">18.非空约束</h3>
-<pre><code>create table ren8(id int,name varchar(20) not null);
-Query OK, 0 rows affected (0.38 sec)
-
-mysql&gt; desc ren8;
-+-------+-------------+------+-----+---------+-------+
-| Field | Type        | Null | Key | Default | Extra |
-+-------+-------------+------+-----+---------+-------+
-| id    | int(11)     | YES  |     | NULL    |       |
-| name  | varchar(20) | NO   |     | NULL    |       |
-+-------+-------------+------+-----+---------+-------+
-2 rows in set (0.20 sec)
-</code></pre>
-<h3 id="19默认约束">19.默认约束</h3>
-<h4 id="当没有出传值的时候会给定默认值传值后不使用默认值">当没有出传值的时候会给定默认值，传值后不使用默认值</h4>
-<pre><code>create table ren9(id int,name varchar(20),age int default 10);
-Query OK, 0 rows affected (0.10 sec)
-
-mysql&gt; desc ren9;
-+-------+-------------+------+-----+---------+-------+
-| Field | Type        | Null | Key | Default | Extra |
-+-------+-------------+------+-----+---------+-------+
-| id    | int(11)     | YES  |     | NULL    |       |
-| name  | varchar(20) | YES  |     | NULL    |       |
-| age   | int(11)     | YES  |     | 10      |       |
-+-------+-------------+------+-----+---------+-------+
-3 rows in set (0.01 sec)
-
-mysql&gt; insert into ren9 (id,name) values (1,'zhangsan');
-Query OK, 1 row affected (0.00 sec)
-
-
-mysql&gt; select * from ren9;
-+------+----------+------+
-| id   | name     | age  |
-+------+----------+------+
-|    1 | zhangsan |   10 |
-+------+----------+------+
-1 row in set (0.00 sec)
-
-
-mysql&gt; insert into ren9 (id,name,age) values (2,'lisi',19);
-Query OK, 1 row affected (0.00 sec)
-
-
-mysql&gt; select * from ren9;
-+------+----------+------+
-| id   | name     | age  |
-+------+----------+------+
-|    1 | zhangsan |   10 |
-|    2 | lisi     |   19 |
-+------+----------+------+
-2 rows in set (0.00 sec)
-</code></pre>
-<h3 id="20主键约束">20.主键约束</h3>
-<h4 id="1主表classes中没有的数值副表不能使用">1.主表classes中没有的数值，副表不能使用</h4>
-<pre><code>mysql&gt; create table classes(id int primary key,name varchar(20));
-Query OK, 0 rows affected (0.08 sec)
-
-mysql&gt; create table students(id int primary key,name varchar(20),class_id int,foreign key(class_id) references classes(id));
-Query OK, 0 rows affected (0.09 sec)
-
-mysql&gt; insert into classes values(1,'张三');
-Query OK, 1 row affected, 2 warnings (0.00 sec)
-
-mysql&gt; insert into classes values(2,'张三');
-Query OK, 1 row affected, 2 warnings (0.00 sec)
-
-mysql&gt; insert into classes values(3,'张三');
-Query OK, 1 row affected, 2 warnings (0.00 sec)
-
-mysql&gt; insert into classes values(4,'张三');
-Query OK, 1 row affected, 2 warnings (0.00 sec)
-
-mysql&gt; insert into students values(1001,'张三',1);
-Query OK, 1 row affected, 2 warnings (0.00 sec)
-
-mysql&gt; insert into students values(1001,'张三',5);
-ERROR 1062 (23000): Duplicate entry '1001' for key 'PRIMARY'
-mysql&gt;
-</code></pre>
-]]></content>
     </entry>
 </feed>

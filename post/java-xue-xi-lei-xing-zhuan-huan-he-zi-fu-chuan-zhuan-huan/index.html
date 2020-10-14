@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JAVA学习--成员内部类 | Jack-yixi</title>
+<title>JAVA学习--类型转换和字符串转换 | Jack-yixi</title>
 <meta name="description" content="学习分享
 ">
 
@@ -76,66 +76,50 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JAVA学习--成员内部类</h2>
-            <div class="post-date">2020-09-19</div>
+            <h2 class="post-title">JAVA学习--类型转换和字符串转换</h2>
+            <div class="post-date">2020-10-14</div>
             
               <div class="feature-container" style="background-image: url('https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1599455484304&amp;di=c3db16a6eba9172bf16fb8942893ec57&amp;imgtype=0&amp;src=http%3A%2F%2Ffile.elecfans.com%2Fweb1%2FM00%2F4F%2F06%2FpIYBAFrQBMCAB_fsAAAsUH60r4M557.jpg')">
               </div>
             
             <div class="post-content">
-              <h2 id="完整源代码">完整源代码</h2>
-<pre><code>package com.yixi.userClass.chengyuan;
-//外部类
-public class outer {
-    //实例变量
-    private String name = &quot;张三&quot;;
-    private int age = 20;
-
-    //内部类
-    class Inner{
-        //成员内部类不能定义静态成员,但可以包含静态常量
-        //内部类变量
-        private String name = &quot;李四&quot;;
-        private String address = &quot;北京&quot;;
-        private  int phone = 110;
-        //内部类方法
-        public void show(){
-            //打印外部类变量
-            //当外部类和内部类存在重名属性时，会优先访问内部类
-            System.out.println(name);
-            //同名情况下访问外部类
-            System.out.println(outer.this.name);
-            System.out.println(age);
-            //打印内部类变量
-            System.out.println(address);
-            System.out.println(phone);
-        }
-    }
-}
+              <h2 id="1基本类型转字符串">1.基本类型转字符串</h2>
+<pre><code>				//1.1加&quot;&quot;
+				int a = 20;
+        String str1 = a + &quot;&quot;;
+        System.out.println(str1);
+				
+        //1.2Integer.toString()转换
+        String str2 = Integer.toString(a);
+        System.out.println(str2);
 </code></pre>
-<pre><code>package com.yixi.userClass.chengyuan;
-
-import com.yixi.userClass.chengyuan.outer;
-
-public class test {
-    public static void main(String[] args) {
-        outer.Inner inner = new outer().new Inner();
-        inner.show();
-
-    }
-}
+<h2 id="2字符串转基本类型">2.字符串转基本类型</h2>
+<pre><code>				//2.字符串转基本类型
+        //使用Integer.parseXXX()转换
+        String str3 = &quot;2342&quot;;
+        int a1 = Integer.parseInt(str3);
+        System.out.println(a1);
 </code></pre>
-<h2 id="结果">结果</h2>
-<p><img src="https://jack-yixi.github.io/post-images/1600496001095.png" alt=""></p>
+<h2 id="3boolean形式的字符串转换">3.boolean形式的字符串转换</h2>
+<pre><code>				//boolean形式的字符串转换，&quot;true&quot;----&gt;ture,非&quot;true&quot;-----&gt;false
+        String str4 = &quot;true&quot;;
+        String str5 = &quot;treu&quot;;
+        boolean b1 = Boolean.parseBoolean(str4);
+        boolean b2 = Boolean.parseBoolean(str5);
+        System.out.println(b1);
+        System.out.println(b2);
+</code></pre>
+<h2 id="4结果">4结果</h2>
+<p><img src="https://jack-yixi.github.io/post-images/1602663050925.png" alt=""></p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://jack-yixi.github.io/post/java-xue-xi-private-fang-wen">
+                <a href="https://jack-yixi.github.io/post/java-xue-xi-chang-yong-fang-fa">
                   <h3 class="post-title">
-                    JAVA学习--private访问
+                    JAVA学习--常用方法
                   </h3>
                 </a>
               </div>
