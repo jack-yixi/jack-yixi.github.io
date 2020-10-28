@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jack-yixi.github.io</id>
     <title>Jack-yixi</title>
-    <updated>2020-10-14T08:27:56.863Z</updated>
+    <updated>2020-10-28T07:39:47.622Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jack-yixi.github.io"/>
     <link rel="self" href="https://jack-yixi.github.io/atom.xml"/>
@@ -11,6 +11,55 @@
     <logo>https://jack-yixi.github.io/images/avatar.png</logo>
     <icon>https://jack-yixi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jack-yixi</rights>
+    <entry>
+        <title type="html"><![CDATA[JAVA学习-String类]]></title>
+        <id>https://jack-yixi.github.io/post/java-xue-xi-string-lei</id>
+        <link href="https://jack-yixi.github.io/post/java-xue-xi-string-lei">
+        </link>
+        <updated>2020-10-28T07:29:40.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="方法一length-charat-contains">方法一(length()、charAt()、contains())</h2>
+<pre><code>String str = new String(&quot;java是世界上最好的语言,java真香&quot;);
+//1.length()返回字符串长度
+System.out.println(str.length());
+//2.charAt()返回当前下标的字符串
+System.out.println(str.charAt(3));
+//3.contains()返回当前的字符是否在字符串中
+System.out.println(str.contains(&quot;java&quot;));
+System.out.println(str.contains(&quot;php&quot;));
+</code></pre>
+<h2 id="方法二tochararray-indexofstr-lastindexofstr">方法二（tocharArray()、indexOf(str)、lastindexOf(str)）</h2>
+<pre><code>//4.tocharArray()将字符串以数组的形式返回
+System.out.println(Arrays.toString(str.toCharArray()));
+//5.indexOf(str)返回字符串所在位置
+System.out.println(str.indexOf(&quot;java&quot;));
+System.out.println(str.indexOf(&quot;java&quot;,4));//后一个参数为开始查找的起点
+//6.lastindexOf(str)返回所查字符串最后出现的位置
+System.out.println(str.lastIndexOf(&quot;java&quot;));
+</code></pre>
+<h2 id="方法三trim-touppercase-endswithstr">方法三(trim()、toUpperCase()、.endsWith(str))</h2>
+<pre><code>String str1 = new String(&quot; ja VA&quot;);
+//7.trim()去除字符串前后的空格
+System.out.println(str1.trim());
+//8.toUpperCase()把小写转换为大写、toLowerCase()把大写转换为小写
+System.out.println(str1.toUpperCase());
+System.out.println(str1.toLowerCase());
+//9.endsWith(str)判断是不是以str开头、startsWith(str)判断是不是以str结尾
+System.out.println(str1.endsWith(&quot;j&quot;));
+System.out.println(str1.startsWith(&quot;a&quot;));
+</code></pre>
+<h2 id="方法四replace-split">方法四（replace()、split()、）</h2>
+<pre><code>//10.replace()用新的字符替换旧的字符,会替换所有的相同的就字符，不止一个
+System.out.println(str1.replace(&quot; &quot;,&quot;haha&quot;));
+//11.split()将字符串拆分
+String str2 = &quot;java is the base language,java,,nice&quot;;
+String [] arr =str2.split(&quot;[ ,]+&quot;);//[]中就是可以作为分隔的符号或其他，+号表示可以多个重叠，例如，，，
+for (int i = 0; i &lt; arr.length; i++) {
+System.out.println(arr[i]);
+}
+System.out.println(arr.length);
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JAVA学习--类型转换和字符串转换]]></title>
         <id>https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan-he-zi-fu-chuan-zhuan-huan</id>
@@ -454,48 +503,5 @@ echo $a;
 ?&gt;
 </code></pre>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[简单的前后端交互——php（jQuery-Ajax）]]></title>
-        <id>https://jack-yixi.github.io/post/jian-dan-de-qian-hou-duan-jiao-hu-phpjquery-ajax</id>
-        <link href="https://jack-yixi.github.io/post/jian-dan-de-qian-hou-duan-jiao-hu-phpjquery-ajax">
-        </link>
-        <updated>2020-04-16T11:51:24.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1ajax给后端提供数据">1.Ajax给后端提供数据</h2>
-<p>代码：</p>
-<pre><code>&lt;div&gt;&lt;button id=&quot;aaa&quot;&gt;测试&lt;/button&gt;&lt;/div&gt;
-&lt;script&gt;
-$(document).ready(function(){
-			    $(&quot;#aaa&quot;).click(function(){
-
-				$.post(&quot;./api/captcha.php&quot;, 
-					{
-						name:&quot;菜鸟教程&quot;,
-						url:&quot;https://www.www.tdyixi.cn&quot;
-					},
-				function(data,status){
-				alert(&quot;数据: \n&quot; + data + &quot;\n状态: &quot; + status);
-						});
-                    });
-                });
-&lt;/script&gt;
-</code></pre>
-<p>注：1.通过<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;#&#039; at position 3: (&quot;#̲aaa&quot;).click(fun…'>(&quot;#aaa&quot;).click(function()给按钮添加事件。
-	   	2.使用</span>.post() 方法通过 HTTP POST 请求向服务器提交数据。<br>
-3.function(data,status)为回调函数。<br>
-4.切记不要忘了引用jQuery文件。</p>
-<h2 id="2后端接受到数据">2.后端接受到数据</h2>
-<p>代码：</p>
-<pre><code>&lt;?php
-$name=$_POST['name'];
-$url=$_POST['url'];
-print_r(&quot;我接收到了&quot;.$name);
-print_r(https://jack-yixi.github.io/post-images/1587041578759.png)
-echo &quot;succes&quot;;
-?&gt;
-</code></pre>
-<p>注：通过print_r打印出所获取的内容，最终并返回success。</p>
-<h2 id="3结果">3.结果</h2>
-<img width="300px" src="C:\Users\Lenovo\Desktop\_(RFZJLC)XJBP9D$~XDEI~C.png" />]]></content>
     </entry>
 </feed>

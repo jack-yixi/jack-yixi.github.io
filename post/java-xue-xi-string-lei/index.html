@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>PHP入门小项目——验证码 | Jack-yixi</title>
+<title>JAVA学习-String类 | Jack-yixi</title>
 <meta name="description" content="学习分享
 ">
 
@@ -76,38 +76,53 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">PHP入门小项目——验证码</h2>
-            <div class="post-date">2020-06-28</div>
+            <h2 class="post-title">JAVA学习-String类</h2>
+            <div class="post-date">2020-10-28</div>
             
-              <div class="feature-container" style="background-image: url('https://jack-yixi.github.io/post-images/php-ru-men-xiao-xiang-mu-yan-zheng-ma.jpg')">
+              <div class="feature-container" style="background-image: url('https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1599455484304&amp;di=c3db16a6eba9172bf16fb8942893ec57&amp;imgtype=0&amp;src=http%3A%2F%2Ffile.elecfans.com%2Fweb1%2FM00%2F4F%2F06%2FpIYBAFrQBMCAB_fsAAAsUH60r4M557.jpg')">
               </div>
             
             <div class="post-content">
-              <h2 id="直接上源代码相应的函数在代码中有解释">直接上源代码,相应的函数在代码中有解释</h2>
-<pre><code>&lt;?php
-header('Content-Type:image/jpeg');//以jpg形式输出
-$width=120;
-$height=40;
-$img=imagecreatetruecolor($width,$height);//使用imagecreatetruecolor画一                                                                     //个图像，控制宽度与高度
-$image_bg=imagecolorallocate($img, rand(200,255),rand(200,255), rand(200,255));//编写一个图像背景
-$array=array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','u','v','w','x','y','z','0','1','3','6','7','8','9','4','5','2');//创建数组编存放图片中可能出现的字符
-$string='';
-for($i=1;$i&lt;=4;$i++){
-     $string.=$array[rand(0,count($array)-1)];//给图片添加需要输出字符串
+              <h2 id="方法一length-charat-contains">方法一(length()、charAt()、contains())</h2>
+<pre><code>String str = new String(&quot;java是世界上最好的语言,java真香&quot;);
+//1.length()返回字符串长度
+System.out.println(str.length());
+//2.charAt()返回当前下标的字符串
+System.out.println(str.charAt(3));
+//3.contains()返回当前的字符是否在字符串中
+System.out.println(str.contains(&quot;java&quot;));
+System.out.println(str.contains(&quot;php&quot;));
+</code></pre>
+<h2 id="方法二tochararray-indexofstr-lastindexofstr">方法二（tocharArray()、indexOf(str)、lastindexOf(str)）</h2>
+<pre><code>//4.tocharArray()将字符串以数组的形式返回
+System.out.println(Arrays.toString(str.toCharArray()));
+//5.indexOf(str)返回字符串所在位置
+System.out.println(str.indexOf(&quot;java&quot;));
+System.out.println(str.indexOf(&quot;java&quot;,4));//后一个参数为开始查找的起点
+//6.lastindexOf(str)返回所查字符串最后出现的位置
+System.out.println(str.lastIndexOf(&quot;java&quot;));
+</code></pre>
+<h2 id="方法三trim-touppercase-endswithstr">方法三(trim()、toUpperCase()、.endsWith(str))</h2>
+<pre><code>String str1 = new String(&quot; ja VA&quot;);
+//7.trim()去除字符串前后的空格
+System.out.println(str1.trim());
+//8.toUpperCase()把小写转换为大写、toLowerCase()把大写转换为小写
+System.out.println(str1.toUpperCase());
+System.out.println(str1.toLowerCase());
+//9.endsWith(str)判断是不是以str开头、startsWith(str)判断是不是以str结尾
+System.out.println(str1.endsWith(&quot;j&quot;));
+System.out.println(str1.startsWith(&quot;a&quot;));
+</code></pre>
+<h2 id="方法四replace-split">方法四（replace()、split()、）</h2>
+<pre><code>//10.replace()用新的字符替换旧的字符,会替换所有的相同的就字符，不止一个
+System.out.println(str1.replace(&quot; &quot;,&quot;haha&quot;));
+//11.split()将字符串拆分
+String str2 = &quot;java is the base language,java,,nice&quot;;
+String [] arr =str2.split(&quot;[ ,]+&quot;);//[]中就是可以作为分隔的符号或其他，+号表示可以多个重叠，例如，，，
+for (int i = 0; i &lt; arr.length; i++) {
+System.out.println(arr[i]);
 }
-imagefill($img,0,0,$image_bg);//imagefill 给图片填充背景颜色
-for($i=0;$i&lt;=200;$i++){
-    imagesetpixel($img , rand(0,119) , rand(0,39) ,imagecolorallocate($img, rand(20,200),rand(20,200), rand(00,200)) );// imagesetpixel给图片添加个单像
-																																//素的点，提高难以辨别度
-
-}
-for($i=0;$i&lt;=2;$i++){
-    imageline ($img , rand(30,$width/2) , rand(10,30) , rand($width/2,$width), rand(10,30) , imagecolorallocate($img, rand(20,200),rand(20,200), rand(00,200)) ) ;//imageline  给图片添加横线，提高难以辨别度
-
-}
-imagettftext ( $img, 20 ,rand(5,15), rand(30,40) , rand(30,35) ,imagecolorallocate($img, rand(20,100),rand(20,100), rand(20,100)) , 'Inkfree.ttf' , $string ) ;//imagettftext给图片添加验证码字符
-imagejpeg($img);       //输出图片
-?&gt;
+System.out.println(arr.length);
 </code></pre>
 
             </div>
@@ -115,9 +130,9 @@ imagejpeg($img);       //输出图片
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://jack-yixi.github.io/post/php-ru-men-zhi-quan-ju-bian-liang-wu-fa-zai-han-shu-zhong-fang-wen">
+                <a href="https://jack-yixi.github.io/post/java-xue-xi-lei-xing-zhuan-huan-he-zi-fu-chuan-zhuan-huan">
                   <h3 class="post-title">
-                    PHP入门之全局变量无法在函数中访问
+                    JAVA学习--类型转换和字符串转换
                   </h3>
                 </a>
               </div>
