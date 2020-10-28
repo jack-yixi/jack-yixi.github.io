@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JAVA学习--类型转换 | Jack-yixi</title>
+<title>JAVA学习--小数加减乘除精度损失问题 | Jack-yixi</title>
 <meta name="description" content="学习分享
 ">
 
@@ -76,23 +76,35 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JAVA学习--类型转换</h2>
-            <div class="post-date">2020-09-07</div>
+            <h2 class="post-title">JAVA学习--小数加减乘除精度损失问题</h2>
+            <div class="post-date">2020-10-28</div>
             
               <div class="feature-container" style="background-image: url('https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1599455484304&amp;di=c3db16a6eba9172bf16fb8942893ec57&amp;imgtype=0&amp;src=http%3A%2F%2Ffile.elecfans.com%2Fweb1%2FM00%2F4F%2F06%2FpIYBAFrQBMCAB_fsAAAsUH60r4M557.jpg')">
               </div>
             
             <div class="post-content">
-              <h2 id="类型转换">类型转换</h2>
-<p>低&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;高<br>
-byte-&gt;short-&gt;char-&gt;int-&gt;long-&gt;float-&gt;double</p>
-<p>1.自动类型转换：由低到高转换</p>
-<pre><code>	byte num = 24;
-	int num2 = num;
-</code></pre>
-<p>2.强制类型转换：由高到低转换</p>
-<pre><code>	int num = 23;
-	byte num2 = (byte)num;
+              <pre><code>public class demo01 {
+    public static void main(String[] args) {
+        //直接相减会损失精度
+        double b1 = 0.9;
+        double b2 = 1.0;
+        System.out.println(b2-b1);
+        //使用BigDecimal类
+        //减法
+        BigDecimal bd1 = new BigDecimal(&quot;1.0&quot;);//虽然是字符串，但是会自动转化为整形
+        BigDecimal bd2 = new BigDecimal(&quot;0.9&quot;);
+        BigDecimal r1 = bd1.subtract(bd2);
+        System.out.println(r1);
+        //加法
+        BigDecimal r2 = bd1.add(bd2);
+        System.out.println(r2);
+        //乘法
+        BigDecimal r3 = bd1.multiply(bd2);
+        System.out.println(r3);
+        //除法
+        BigDecimal r4 = new BigDecimal(&quot;1.4&quot;).subtract(new BigDecimal(&quot;0.5&quot;)).divide(new BigDecimal(&quot;0.9&quot;));
+        System.out.println(r4);
+    }
 </code></pre>
 
             </div>
@@ -100,9 +112,9 @@ byte-&gt;short-&gt;char-&gt;int-&gt;long-&gt;float-&gt;double</p>
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://jack-yixi.github.io/post/php-ru-men-xiao-xiang-mu-yan-zheng-ma">
+                <a href="https://jack-yixi.github.io/post/java-xue-xi-string-lei">
                   <h3 class="post-title">
-                    PHP入门小项目——验证码
+                    JAVA学习--String类
                   </h3>
                 </a>
               </div>
